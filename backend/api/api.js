@@ -27,7 +27,7 @@ router.get('/test', (request, response) => {
 });
 
 //?GET /api/testsql
-router.get('/testsql', async (request, response) => {
+router.get('/allfoods', async (request, response) => {
     try {
         const selectall = await database.selectall();
         response.status(200).json({
@@ -37,6 +37,20 @@ router.get('/testsql', async (request, response) => {
     } catch (error) {
         response.status(500).json({
             message: 'Ez a végpont nem működik.'
+        });
+    }
+});
+
+router.post('/addfood', upload.none(), async (request, response) => {
+    try {
+        const { foodName, foodPrice, foodTaste, foodExpiration, foodQuantity } = request.body;
+        await database.addFood(foodName, foodPrice, foodTaste, foodExpiration, foodQuantity);
+        response.status(200).json({
+            message: 'Étel sikeresen hozzáadva.'
+        });
+    } catch (error) {
+        response.status(500).json({
+            message: 'Hiba történt az étel hozzáadása során.'
         });
     }
 });

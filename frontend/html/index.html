@@ -17,8 +17,32 @@
     <body>
         <div class="container-fluid">
             <div class="row text-center">
-                <h1 class="display-1">A szerver fut.</h1>
+                <form id="foodForm">
+                    <label for="foodName">Étel neve: </label>
+                    <input type="text" id="foodName" name="foodName">
+
+                    <label for="foodPrice">Étel ára: </label>
+                    <input type="text" id="foodPrice" name="foodPrice">
+
+                    Finom
+
+                    <input type="radio" id="foodTasteTrue" name="foodTaste">
+                    <label for="foodTasteTrue">Yes king</label>
+
+                    <input type="radio" id="foodTasteFalse" name="foodTaste">
+                    <label for="foodTasteFalse">No goy</label>
+
+                    <label for="foodExpiration">Étel lejárata: </label>
+                    <input type="date" id="foodExpiration" name="foodExpiration">
+
+                    <label for="foodQuantity">Étel mennyisége: </label>
+                    <input type="number" id="foodQuantity" name="foodQuantity">
+                </form>
             </div>
+            <input type="button" id="submitButton" value="Submit">
+        </div>
+
+        <div class="foodTable" id="foodTable">
         </div>
     </body>
 </html>
